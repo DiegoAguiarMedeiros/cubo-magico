@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { ThemeProvider } from "styled-components"
+import Cubo from './components/cubo'
+import { GlobalStyle } from "./components/GlobalStyle";
+import { temaClaro, temaEscuro } from "./components/UI/temas";
+import {BtnTema} from "./components/UI"
+import SwitcherTheme from "./components/SwitcherTheme";
 
 function App() {
+  const [tema, setTema] = useState(true)
+  const toggleTema = () => {
+    setTema((tema) => !tema)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={tema ? temaClaro : temaEscuro}>
+      <GlobalStyle />
+      <BtnTema onClick={toggleTema}>
+        <SwitcherTheme tema={tema} />
+      </BtnTema>
+      <div className="App">
+        <Cubo />
+      </div>
+    </ThemeProvider>
   );
 }
 
