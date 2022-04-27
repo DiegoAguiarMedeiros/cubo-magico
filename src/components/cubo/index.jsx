@@ -8,7 +8,7 @@ import { UpArrow, RightArrow, DownArrow, LeftArrow } from './cubo-controles'
 
 const Cubo = styled.div`
 background-color: ${({ theme }) => theme.body};
-padding:14vh 4vw 0 ;
+padding:5vh 2vw 0 ;
 height:99.99vh;
 width: 60vw;
 `
@@ -16,7 +16,7 @@ width: 60vw;
 const UpControl = styled(CuboPainelControle)`
     display: flex;
     flex-direction:row ;
-    margin-left:180px;
+    margin-left:210px;
     width: 152px;
 `
 const LeftControl = styled(CuboPainelControle)`
@@ -36,13 +36,13 @@ const ControlInner = styled(CuboPainelControle)`
     vertical-align: top;
 `
 const DownControl = styled(CuboPainelControle)`
-    margin-left:180px;
+    margin-left:210px;
     width: 152px;
     display: flex;
     flex-direction:row ;
 `
 const FaceAmarela = styled(CuboFace)`
-    margin-left:180px;
+    margin-left:210px;
 `
 const FaceVerde = styled(CuboFace)`
     display: inline-block;
@@ -58,12 +58,15 @@ const FaceAzul = styled(CuboFace)`
 display: inline-block;
 vertical-align: top;`
 const FaceBranca = styled(CuboFace)`
-margin-left:180px;`
+margin-left:210px;`
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
     return (
         <Cubo>
+            <UpControl>
+                <UpArrow src={Angle} />
+            </UpControl>
             <UpControl>
                 <UpArrow src={Angle} />
                 <UpArrow src={Angle} />
@@ -73,6 +76,11 @@ export default () => {
                 <CuboFaceInterno />
             </FaceAmarela>
 
+            <LeftControl>
+                <ControlInner>
+                    <LeftArrow src={Angle} />
+                </ControlInner>
+            </LeftControl>
             <LeftControl>
                 <ControlInner>
                     <LeftArrow src={Angle} />
@@ -99,6 +107,11 @@ export default () => {
                     <RightArrow src={Angle} />
                 </ControlInner>
             </RightControl>
+            <RightControl>
+                <ControlInner>
+                    <RightArrow src={Angle} />
+                </ControlInner>
+            </RightControl>
 
             <FaceBranca>
                 <CuboFaceInterno />
@@ -106,6 +119,9 @@ export default () => {
             <DownControl>
                 <DownArrow src={Angle} />
                 <DownArrow src={Angle} />
+                <DownArrow src={Angle} />
+            </DownControl>
+            <DownControl>
                 <DownArrow src={Angle} />
             </DownControl>
         </Cubo>
