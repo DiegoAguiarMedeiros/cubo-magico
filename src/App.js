@@ -17,9 +17,7 @@ function App() {
       <BtnTema onClick={toggleTema}>
         <SwitcherTheme tema={tema} />
       </BtnTema>
-      <div className="App">
         <Cubo />
-      </div>
     </ThemeProvider>
   );
 }
