@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-import { CuboPeca } from './cubo-peca'
+import CuboPeca from './cubo-peca'
 
 const CuboFaceInterno = styled.div`
 background-color: ${({ theme }) => theme.body};
@@ -13,18 +13,30 @@ flex-flow: row wrap;
 `
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
+export default (props) => {
     return (
         <CuboFaceInterno>
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
-            <CuboPeca />
+            {
+            props.face.map((peca) => {
+                let position = 0;
+                if (peca > 9 && peca < 19) {
+                    position = 1;
+                } else if (peca > 18 && peca < 28) {
+                    position = 2;
+                    
+                } else if (peca > 27 && peca < 37) {
+                    position = 3;
+                    
+                } else if (peca > 36 && peca < 46) {
+                    position = 4;
+                    
+                }else if (peca > 45 && peca < 55) {
+                    position = 5;
+                    
+                }
+                return <CuboPeca backgroundColor={props.cor[position]} />
+            })
+            }
         </CuboFaceInterno>
     )
 }
